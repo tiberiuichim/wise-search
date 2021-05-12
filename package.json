@@ -1,0 +1,55 @@
+{
+  "name": "@eeacms/wise-catalog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/app.html",
+  "scripts": {
+    "start": "npx parcel --hmr-port 4000 serve ./src/app.html",
+    "watch": "npx parcel --hmr-port 4000 watch ./src/app.html",
+    "build": "find ./dist/ -type f ! -iname '*.html' -delete; yarn parcel build --public-url ./ ./src/*.html; ./scripts/dist.py",
+    "develop": "find ./dist/ -type f ! -iname '*.html' -delete; NODE_ENV=development yarn parcel build --public-url ./ ./src/*.html; ./scripts/dist.py"
+  },
+  "keywords": [],
+  "author": "Tiberiu Ichim",
+  "license": "MIT",
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not op_mini all",
+    "ie 11"
+  ],
+  "devDependencies": {
+    "@babel/core": "^7.12.3",
+    "@babel/preset-env": "^7.14.1",
+    "@babel/preset-react": "^7.12.5",
+    "babel-plugin-root-import": "^6.6.0",
+    "eslint": "^7.12.1",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.21.5",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "parcel": "^2.0.0-beta.2",
+    "prettier": "^2.1.2"
+  },
+  "dependencies": {
+    "@eeacms/search": "link:.yalc/@eeacms/search",
+    "@elastic/react-search-ui-views": "^1.5.1",
+    "@parcel/transformer-babel": "^2.0.0-alpha.3",
+    "axios": "^0.21.0",
+    "corejs": "^1.0.0",
+    "query-string": "^6.13.7",
+    "react": "^16.14.0",
+    "react-dom": "^17.0.1",
+    "regenerator-runtime": "^0.13.7",
+    "whatwg-fetch": "^3.5.0"
+  },
+  "alias": {
+    "@eeacms/search": "@eeacms/search/src"
+  },
+  "resolutions": {
+    "@babel/preset-env": "7.13.8"
+  },
+  "peerDependencies": {
+    "semantic-ui-react": "^2.0.3"
+  }
+}

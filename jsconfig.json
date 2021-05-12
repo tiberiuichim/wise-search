@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "baseUrl": ".",
+    "paths": {
+      "~/*": ["src/*"],
+      "@eeacms/search": "node_modules/@eeacms/search/src"
+    }
+  },
+  "exclude": []
+}

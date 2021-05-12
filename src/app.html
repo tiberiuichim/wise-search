@@ -1,0 +1,39 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      tal:define="portal_url context/@@plone_portal_state/portal_url"
+      i18n:domain="plone">
+  <head metal:fill-slot="head_slot">
+    <tal:insert tal:replace="nothing"
+        tal:define="dummy python:request.set('enable_border', 1);
+                    disable_column_one python:request.set('disable_plone.leftcolumn', 1);
+                    disable_column_two python:request.set('disable_plone.rightcolumn', 1);" />
+  </head>
+  <body>
+
+    <metal:content-core fill-slot="main">
+    <metal:content-core define-macro="main">
+    <div id="search-app"></div>
+    <script>
+      if (window.require) {
+        window["old_require"] = require;
+        window["old_define"] = define;
+        window["require"] = undefined;
+        window["define"] = undefined;
+      }
+    </script>
+    <script src="app.js"></script>
+    <script>
+      if (window.old_require) {
+        window["require"] = window["old_require"];
+        window["define"] = window["old_define"];
+      }
+    </script>
+    </metal:content-core>
+    </metal:content-core>
+
+  </body>
+</html>
