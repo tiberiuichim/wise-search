@@ -2,16 +2,23 @@
   "name": "@eeacms/wise-catalog",
   "version": "1.0.0",
   "description": "",
-  "main": "src/app.html",
+  "searchapp": "dist/app.html",
   "scripts": {
-    "start": "npx parcel --hmr-port 4000 serve ./src/app.html",
-    "watch": "npx parcel --hmr-port 4000 watch ./src/app.html",
-    "build": "find ./dist/ -type f ! -iname '*.html' -delete; yarn parcel build ./src/*.html --dist-dir dist/ --public-url ./ ; ./scripts/dist.py",
+    "start": "yarn parcel --hmr-port 4000 ./src/app.html",
+    "watch": "yarn parcel --hmr-port 4000 watch ./src/app.html",
+    "build": "find ./dist/ -type f ! -iname '*.html' -delete; yarn parcel build ./src/*.html --no-optimize --dist-dir dist/ --public-url ./ --no-autoinstall; ./scripts/dist.py",
     "develop": "find ./dist/ -type f ! -iname '*.html' -delete; NODE_ENV=development yarn parcel build ./src/*.html --dist-dir dist/ --public-url ./ ; ./scripts/dist.py"
   },
   "keywords": [],
   "author": "Tiberiu Ichim",
   "license": "MIT",
+  "targets": {
+    "searchapp": {
+      "engines": {
+        "browsers": "> 0.25%"
+      }
+    }
+  },
   "browserslist": [
     ">0.2%",
     "not dead",
@@ -19,9 +26,9 @@
     "ie 11"
   ],
   "devDependencies": {
-    "@babel/core": "^7.12.3",
-    "@babel/preset-env": "^7.14.1",
-    "@babel/preset-react": "^7.12.5",
+    "@babel/core": "^7.13.8",
+    "@babel/preset-env": "^7.13.8",
+    "@babel/preset-react": "^7.13.8",
     "babel-plugin-root-import": "^6.6.0",
     "eslint": "^7.12.1",
     "eslint-config-prettier": "^6.15.0",
