@@ -6,8 +6,8 @@
   "scripts": {
     "start": "npx parcel --hmr-port 4000 serve ./src/app.html",
     "watch": "npx parcel --hmr-port 4000 watch ./src/app.html",
-    "build": "find ./dist/ -type f ! -iname '*.html' -delete; yarn parcel build --public-url ./ ./src/*.html; ./scripts/dist.py",
-    "develop": "find ./dist/ -type f ! -iname '*.html' -delete; NODE_ENV=development yarn parcel build --public-url ./ ./src/*.html; ./scripts/dist.py"
+    "build": "find ./dist/ -type f ! -iname '*.html' -delete; yarn parcel build ./src/*.html --dist-dir dist/ --public-url ./ ; ./scripts/dist.py",
+    "develop": "find ./dist/ -type f ! -iname '*.html' -delete; NODE_ENV=development yarn parcel build ./src/*.html --dist-dir dist/ --public-url ./ ; ./scripts/dist.py"
   },
   "keywords": [],
   "author": "Tiberiu Ichim",
